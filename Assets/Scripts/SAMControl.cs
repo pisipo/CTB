@@ -12,6 +12,7 @@ public class SAMControl : MonoBehaviour
     public Transform burst, target;
     public float rotate_speed = 5, next_fire_time = 0;
     public float reload_time = 5;
+    float radius = 40;
     // Use this for initialization
     private void Start()
     {
@@ -34,7 +35,7 @@ public class SAMControl : MonoBehaviour
             GameObject vilan;
             vilan = GetClosestObject();
             if (vilan) target = vilan.transform;
-            if (target) next_fire_time = Time.time + reload_time;
+           // if (target) next_fire_time = Time.time + reload_time;
         }
     }
 
@@ -61,7 +62,7 @@ public class SAMControl : MonoBehaviour
 
     private GameObject GetClosestObject()
     {
-        float radius = 19;
+      
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         Collider closestCollider = null;
         foreach (Collider hit in colliders)
